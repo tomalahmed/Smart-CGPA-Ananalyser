@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart CGPA Analyser</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
     <!-- Google font -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-
-<link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -411,21 +405,16 @@
 
     </main>
 
-    <script src="./app.js"></script>
+    <script type="module" src="/src/main.js"></script>
 
-    <!-- Wire up the semester planner placeholder visibility -->
+    <!-- Wire up the semester planner placeholder visibility (kept simple) -->
     <script>
-        // Hide placeholder once sp_output becomes visible
         document.addEventListener('DOMContentLoaded', () => {
-            const obs = new MutationObserver(() => {
-                const out = document.getElementById('sp_output');
-                const ph = document.getElementById('sp_placeholder');
-                if (out && ph) {
-                    ph.style.display = out.classList.contains('hidden') ? 'block' : 'none';
-                }
-            });
             const out = document.getElementById('sp_output');
-            if (out) obs.observe(out, { attributes: true });
+            const ph = document.getElementById('sp_placeholder');
+            if (!out || !ph) return;
+            const mo = new MutationObserver(() => ph.style.display = out.classList.contains('hidden') ? 'block' : 'none');
+            mo.observe(out, { attributes: true });
         });
     </script>
     

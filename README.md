@@ -62,6 +62,33 @@ That's it! No server needed.
 
 ---
 
+## 🧩 Development (Vite + Tailwind)
+
+The project has been migrated to use Vite and Tailwind for local development. To run the project locally:
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the dev server:
+
+```bash
+npm run dev
+```
+
+Open the URL shown by Vite (usually `http://localhost:5173`).
+
+Build for production:
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
 ## 🛠️ Tech Stack
 
 | Technology | Purpose |
